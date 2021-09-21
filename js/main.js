@@ -91,15 +91,23 @@ const app = new Vue ({
             this.currentContact = contactsIndex;
         },
         addMessage: function() {
+            let today = new Date();
+            let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+            let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            let dateTime = date + ' ' + time;
             this.contacts[this.currentContact].messages.push({
-                date: '21/09/2021 17:03:45',
+                date: dateTime,
                 message: this.newMessage,
                 status: 'sent'
             });
             this.newMessage = "";
             setTimeout(() => { 
+                let today = new Date();
+                let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+                let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                let dateTime = date + ' ' + time;
                 this.contacts[this.currentContact].messages.push({
-                    date: '21/09/2021 17:03:45',
+                    date: dateTime,
                     message: 'Ciao!',
                     status: 'received'
                 });
