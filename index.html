@@ -48,7 +48,7 @@
                 <div class="section_L_Chat">
                     <ul>
                         <li v-for="(contact, index) in contacts" :key="index">
-                            <img :src="avatar + contact.avatar" :alt="Avatar + contact.name">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar' + contact.name">
                             <span>{{contact.name}}</span>
                         </li>
                     </ul>
@@ -73,7 +73,12 @@
                     </div>
                 </div>
                 <div class="section_R_Chat">
-
+                    <div class="d_flex messageContainer" v-for="(message, index) in contacts[0].messages" :key="index">
+                        <div :class="message.status">
+                            {{message.message}}
+                            <div class="date">{{message.date}}</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="d_flex section_R_Message" >
                     <i class="far fa-smile"></i>

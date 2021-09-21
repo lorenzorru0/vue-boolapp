@@ -38,6 +38,7 @@ img {
     color: #b1b1b1;
     margin-right: 15px;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 .img_Top {
     width: 50px;
@@ -69,6 +70,7 @@ img {
     background-color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
+    transition: transform 0.5s;
 }
 .linkNot {
     font: 0.6rem;
@@ -101,9 +103,19 @@ img {
 }
 .section_L_Chat {
     height: calc(100% - 197px);
+    overflow-y: auto;
 }
 .section_L_Chat ul {
     list-style: none;
+}
+.section_L_Chat img {
+    width: 60px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.section_L_Chat li {
+    border-bottom: 1px solid #f5f5f5;
+    padding: 10px;
 }
 
 /* Section right */
@@ -125,8 +137,36 @@ img {
 }
 .section_R_Chat {
     height: calc(100% - 125px);
+    padding: 50px 100px;
     background-image: url(../img/mine.jpg);
 }
+.section_R_Chat .sent,
+.section_R_Chat .received {
+    width: 400px;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+/* .messageContainer {
+    justify-content: flex-end;
+} */
+.section_R_Chat .sent{
+    margin-left: auto;
+    background-color: #d5f9ba;
+}
+.section_R_Chat .received{
+    margin-right: auto;
+    background-color: #fff;
+}
+.section_R_Chat .date {
+    position: absolute;
+    font-size: 0.6rem;
+    color: #d7d9da;
+    right: 5px;
+    bottom: 5px;
+}
+
 .section_R_Message {
     background-color: #f3eeea;
     justify-content: space-evenly;
@@ -142,4 +182,23 @@ img {
 .section_R_Message i {
     color: #6b7376;
     font-size: 1.2rem;
+    transition: transform 0.5s;
+}
+
+/* Hover effects */
+.icons_Top:hover {
+    color: #969696;
+}
+.containerNot:hover {
+    transform: scale(1.15);
+}
+.section_L_Search div:hover {
+    color: #fff;
+    background-color: #dbdbd2;
+}
+.section_L_Chat li:hover {
+    background-color: #e9ebeb;
+}
+.section_R_Message i:hover {
+    transform: scale(1.3);
 }
