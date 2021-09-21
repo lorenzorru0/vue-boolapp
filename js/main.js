@@ -117,16 +117,17 @@ const app = new Vue ({
         },
         searchChat: function() {
             let testSearchString = this.searchString.charAt(0).toLowerCase() + this.searchString.slice(1);
+            let testArray = [];
 
-            this.contacts.filter(
-                () => {
-                    let testName = this.contacts.name.charAt(0).toLowerCase() + this.contacts.name.slice(1);
-                    if (testName.includes(testSearchString)) {
-                        return true;
-                    }
-                    return false;
+            this.contacts.forEach((contact) => {
+                let testName = contact.name.charAt(0).toLowerCase() + contact.name.slice(1);
+                if ( testName.includes(testSearchString) == true ) {
+                    testArray.push(contact);
                 }
-            );
+            });
+
+            this.contacts = testArray;
+
         }
     }
 });
