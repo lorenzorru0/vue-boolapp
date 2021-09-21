@@ -83,9 +83,20 @@ const app = new Vue ({
                 ],
             },
         ],
-        avatar: "avatar"
+        currentContact: 0,
+        newMessage: ""
     },
     methods: {
-
+        changeChat: function(contactsIndex) {
+            this.currentContact = contactsIndex;
+        },
+        addMessage: function() {
+            this.contacts[this.currentContact].messages.push({
+                date: '21/09/2021 17:03:45',
+                message: this.newMessage,
+                status: 'sent'
+            });
+            this.newMessage = "";
+        }
     }
 });
