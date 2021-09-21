@@ -82,7 +82,8 @@ const app = new Vue ({
                 }
                 ],
             },
-        ]
+        ],
+        avatar: "avatar"
     },
     methods: {
 

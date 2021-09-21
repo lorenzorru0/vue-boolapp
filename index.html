@@ -20,7 +20,67 @@
     </head>
     <body>
 
-        <div id="root">
+        <div id="root" class="d_flex container">
+
+            <section class="sectionLeft">
+                <div class="d_flex section_L_User">
+                    <div>
+                        <img class="img_Top" src="img/avatar_io.jpg" alt="Avatar user">
+                        Lorenzo Orrù
+                    </div>
+                    <div>
+                        <i class="fas fa-circle-notch icons_Top"></i>
+                        <i class="fas fa-comment-alt icons_Top"></i>
+                        <i class="fas fa-ellipsis-v icons_Top"></i>
+                    </div>
+                </div>
+                <div class="d_flex section_L_Not">
+                    <a href="#" class="containerNot"><i class="fas fa-bell-slash"></i></a>
+                    <div>
+                        <p>Receive notification of new messages</p>
+                        <a class="linkNot" href="#">Turn on desktop notification</a>
+                    </div>
+                </div>
+                <div class="d_flex section_L_Search">
+                    <div><i class="fas fa-search"></i></div>
+                    <input type="text" name="searchChat" id="searchChat" placeholder="Search or start a new chat">
+                </div>
+                <div class="section_L_Chat">
+                    <ul>
+                        <li v-for="(contact, index) in contacts" :key="index">
+                            <img :src="avatar + contact.avatar" :alt="Avatar + contact.name">
+                            <span>{{contact.name}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="sectionRight">
+                <div class="d_flex section_R_Contact">
+                    <div>
+                        <div class="d_flex">
+                            <img class="img_Top" src="img/avatar_1.jpg" alt="Avatar ">
+                            <span class="contactNameAccess">
+                                <p>Michele</p>
+                                <p>Last seen today at</p>
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fas fa-search icons_Top"></i>
+                        <i class="fas fa-paperclip icons_Top"></i>
+                        <i class="fas fa-ellipsis-v icons_Top"></i>
+                    </div>
+                </div>
+                <div class="section_R_Chat">
+
+                </div>
+                <div class="d_flex section_R_Message" >
+                    <i class="far fa-smile"></i>
+                    <input type="text" name="message" id="message" placeholder="Write a message">
+                    <i class="fas fa-microphone"></i>
+                </div>
+            </section>
 
         </div>
         
