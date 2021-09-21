@@ -84,34 +84,49 @@ const app = new Vue ({
             },
         ],
         currentContact: 0,
-        newMessage: ""
+        newMessage: "",
+        searchString: ""
     },
     methods: {
         changeChat: function(contactsIndex) {
             this.currentContact = contactsIndex;
         },
-        addMessage: function() {
+        getDate: function() {
             let today = new Date();
             let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
             let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             let dateTime = date + ' ' + time;
+            return dateTime;
+        },
+        addMessage: function() {
+            let currentDateTime = this.getDate();
             this.contacts[this.currentContact].messages.push({
-                date: dateTime,
+                date: currentDateTime,
                 message: this.newMessage,
                 status: 'sent'
             });
             this.newMessage = "";
             setTimeout(() => { 
-                let today = new Date();
-                let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-                let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                let dateTime = date + ' ' + time;
+                let currentDateTime = this.getDate();
                 this.contacts[this.currentContact].messages.push({
-                    date: dateTime,
+                    date: currentDateTime,
                     message: 'Ciao!',
                     status: 'received'
                 });
             }, 1000);
+        },
+        searchChat: function() {
+            let testSearchString = this.searchString.charAt(0).toLowerCase() + this.searchString.slice(1);
+
+            this.contacts.filter(
+                () => {
+                    let testName = this.contacts.name.charAt(0).toLowerCase() + this.contacts.name.slice(1);
+                    if (testName.includes(testSearchString)) {
+                        return true;
+                    }
+                    return false;
+                }
+            );
         }
     }
 });

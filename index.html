@@ -43,7 +43,7 @@
                 </div>
                 <div class="d_flex section_L_Search">
                     <div><i class="fas fa-search"></i></div>
-                    <input type="text" name="searchChat" id="searchChat" placeholder="Search or start a new chat">
+                    <input type="text" name="searchChat" id="searchChat" placeholder="Search or start a new chat" v-model="searchString" @input="searchChat()">
                 </div>
                 <div class="section_L_Chat">
                     <ul>
