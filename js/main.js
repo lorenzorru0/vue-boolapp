@@ -85,9 +85,18 @@ const app = new Vue ({
         ],
         currentContact: 0,
         newMessage: "",
-        searchString: ""
+        searchString: "",
+        testContacts: []
+    },
+    mounted() {
+        this.copyContacts()
     },
     methods: {
+        copyContacts: function() {
+            this.contacts.forEach((contact) => {
+                this.testContacts.push(contact);
+            });
+        },
         changeChat: function(contactsIndex) {
             this.currentContact = contactsIndex;
         },
@@ -116,7 +125,7 @@ const app = new Vue ({
             }, 1000);
         },
         searchChat: function() {
-            let testSearchString = this.searchString.charAt(0).toLowerCase() + this.searchString.slice(1);
+            let testSearchString = this.searchString.charAt(0).toLowerCase() + this.searchString.slice(1); 
             let testArray = [];
 
             this.contacts.forEach((contact) => {
@@ -126,7 +135,7 @@ const app = new Vue ({
                 }
             });
 
-            this.contacts = testArray;
+            this.testContacts = testArray;
 
         }
     }
