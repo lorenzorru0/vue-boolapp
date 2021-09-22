@@ -199,7 +199,8 @@ const app = new Vue ({
             "A questo punto non ci sono arrivato.",
             "È verosimile.",
             "Tutto il contrario."
-        ]
+        ],
+        darkLigthMode: false
     },
     mounted() {
         this.copyContacts()

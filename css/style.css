@@ -34,11 +34,19 @@ body {
 img {
     border-radius: 50%;
 }
+.icons_Top_Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    margin-right: 1.25rem;
+    cursor: pointer;
+}
 .icons_Top {
     color: #b1b1b1;
-    margin-right: .9375rem;
     font-size: 1.2rem;
-    cursor: pointer;
 }
 .img_Top {
     width: 3.125rem;
@@ -117,6 +125,9 @@ img {
     border-bottom: .0625rem solid #f5f5f5;
     padding: .625rem;
 }
+.section_L_Chat li.active {
+    background-color: #e9ebeb;
+}
 
 /* Section right */
 .section_R_Contact {
@@ -138,8 +149,8 @@ img {
 .section_R_Chat {
     height: calc(100% - 7.8125rem);
     padding: 3.125rem 6.25rem;
-    background-image: url(../img/mine.jpg);
     overflow-y: auto;
+    background-image: url(../img/mine.jpg);
 }
 .section_R_Chat .sent,
 .section_R_Chat .received {
@@ -201,9 +212,16 @@ img {
     transition: transform 0.5s;
 }
 
+/* Dark mode */
+.darkBackground {
+    background-image: url(../img/mineDark2.0.png);
+}
+
 /* Hover effects */
-.icons_Top:hover {
-    color: #969696;
+.icons_Top_Container:hover {
+    background-color: #c2c2c2;
+    box-shadow: 0 0 .25rem #c2c2c2;
+    color: #ddd;
 }
 .containerNot:hover {
     transform: scale(1.15);

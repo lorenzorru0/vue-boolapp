@@ -28,10 +28,14 @@
                         <img class="img_Top" src="img/avatar_io.jpg" alt="Avatar user">
                         Lorenzo Orrù
                     </div>
-                    <div>
-                        <i class="fas fa-circle-notch icons_Top"></i>
-                        <i class="fas fa-comment-alt icons_Top"></i>
-                        <i class="fas fa-ellipsis-v icons_Top"></i>
+                    <div class="d_flex">
+                        <div class="icons_Top_Container"><i class="fas fa-circle-notch icons_Top"></i></div>
+                        <div class="icons_Top_Container"><i class="fas fa-comment-alt icons_Top"></i></div>
+                        <div class="icons_Top_Container"><i class="fas fa-ellipsis-v icons_Top"></i></div>
+                        <div>
+                            <p>Dark mode</p>
+                            <p></p>
+                        </div>
                     </div>
                 </div>
                 <div class="d_flex section_L_Not">
@@ -47,7 +51,7 @@
                 </div>
                 <div class="section_L_Chat">
                     <ul>
-                        <li v-for="(contact, index) in testContacts" :key="index" @click="changeChat(index)">
+                        <li :class="index == currentContact ? 'active' : null" v-for="(contact, index) in testContacts" :key="index" @click="changeChat(index)">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar' + contact.name">
                             <span>{{contact.name}}</span>
                         </li>
@@ -66,10 +70,10 @@
                             </span>
                         </div>
                     </div>
-                    <div>
-                        <i class="fas fa-search icons_Top"></i>
-                        <i class="fas fa-paperclip icons_Top"></i>
-                        <i class="fas fa-ellipsis-v icons_Top"></i>
+                    <div class="d_flex">
+                        <div class="icons_Top_Container"><i class="fas fa-search icons_Top"></i></div>
+                        <div class="icons_Top_Container"><i class="fas fa-paperclip icons_Top"></i></div>
+                        <div class="icons_Top_Container"><i class="fas fa-ellipsis-v icons_Top"></i></i></div>
                     </div>
                 </div>
                 <div class="section_R_Chat">
