@@ -20,80 +20,88 @@
     </head>
     <body>
 
-        <div id="root" class="d_flex container">
+        <div id="root">
 
-            <section class="sectionLeft">
-                <div class="d_flex section_L_User">
-                    <div>
-                        <img class="img_Top" src="img/avatar_io.jpg" alt="Avatar user">
-                        Lorenzo Orrù
-                    </div>
-                    <div class="d_flex">
-                        <div class="icons_Top_Container"><i class="fas fa-circle-notch icons_Top"></i></div>
-                        <div class="icons_Top_Container"><i class="fas fa-comment-alt icons_Top"></i></div>
-                        <div class="icons_Top_Container"><i class="fas fa-ellipsis-v icons_Top"></i></div>
-                        <div>
-                            <p>Dark mode</p>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="d_flex section_L_Not">
-                    <a href="#" class="containerNot"><i class="fas fa-bell-slash"></i></a>
-                    <div>
-                        <p>Receive notification of new messages</p>
-                        <a class="linkNot" href="#">Turn on desktop notification</a>
-                    </div>
-                </div>
-                <div class="d_flex section_L_Search">
-                    <div><i class="fas fa-search"></i></div>
-                    <input type="text" name="searchChat" id="searchChat" placeholder="Search or start a new chat" v-model="searchString" @input="searchChat()" @keyup.backspace="searchChat()">
-                </div>
-                <div class="section_L_Chat">
-                    <ul>
-                        <li :class="index == currentContact ? 'active' : null" v-for="(contact, index) in testContacts" :key="index" @click="changeChat(index)">
-                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar' + contact.name">
-                            <span>{{contact.name}}</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+            <div class="background" :class="{darkBackgroundBody : darkLigthMode}">
 
-            <section class="sectionRight">
-                <div class="d_flex section_R_Contact">
-                    <div>
-                        <div class="d_flex">
-                            <img class="img_Top" :src="'img/avatar' + contacts[currentContact].avatar + '.jpg'" alt="Avatar ">
-                            <span class="contactNameAccess">
-                                <p>{{contacts[currentContact].name}}</p>
-                                <p>Last seen today at</p>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="d_flex">
-                        <div class="icons_Top_Container"><i class="fas fa-search icons_Top"></i></div>
-                        <div class="icons_Top_Container"><i class="fas fa-paperclip icons_Top"></i></div>
-                        <div class="icons_Top_Container"><i class="fas fa-ellipsis-v icons_Top"></i></i></div>
-                    </div>
-                </div>
-                <div class="section_R_Chat">
-                    <div class="d_flex" v-for="(message, index) in contacts[currentContact].messages" :key="index">
-                        <div :class="message.status" class="message" @click="toggleDeleteMessage(index)">
-                            {{message.message}}
-                            <div class="date">{{message.date}}</div>
-                            <div class="deleteMessage" :class="message.deleteMessage ? 'view' : 'none'" @click="deleteMessageFunction(index)">
-                                Delete message
+                <div class="d_flex container">
+                    
+                    <section class="sectionLeft" :class="{darkSectionLeft : darkLigthMode}">
+                        <div class="d_flex section_L_User" :class="{sectionBackgound : darkLigthMode}">
+                            <div>
+                                <img class="img_Top" src="img/avatar_io.jpg" alt="Avatar user">
+                                Lorenzo Orrù
+                            </div>
+                            <div class="d_flex icons_L_Top_Container">
+                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-circle-notch icons_Top"></i></div>
+                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-comment-alt icons_Top"></i></div>
+                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}" @click="toggleLigthDarkMode()"><i class="fas fa-ellipsis-v icons_Top"></i></div>
+                                <div class="ligthModeContainer" :class="{view : darkLigthModeView, darkModeContainer : darkLigthMode}" @click="darkMode()">
+                                    <p v-if="darkLigthMode == false">Dark mode</p>
+                                    <p v-else>Ligth mode</p>
+                                </div>
                             </div>
                         </div>
-                        
-                    </div>
+                        <div class="d_flex section_L_Not" :class="{darkBackgroundNot : darkLigthMode}">
+                            <a href="#" class="containerNot" :class="{darkContainerNot : darkLigthMode}"><i class="fas fa-bell-slash"></i></a>
+                            <div>
+                                <p>Receive notification of new messages</p>
+                                <a class="linkNot" href="#">Turn on desktop notification</a>
+                            </div>
+                        </div>
+                        <div class="d_flex section_L_Search" :class="{darkSection_L_Search : darkLigthMode}">
+                            <div><i class="fas fa-search"></i></div>
+                            <input type="text" name="searchChat" id="searchChat" placeholder="Search or start a new chat" v-model="searchString" @input="searchChat()" @keyup.backspace="searchChat()">
+                        </div>
+                        <div class="section_L_Chat" :class="{darkSection_L_Chat : darkLigthMode}">
+                            <ul>
+                                <li :class="index == currentContact ? 'active' : null" v-for="(contact, index) in testContacts" :key="index" @click="changeChat(index)">
+                                    <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar' + contact.name">
+                                    <span>{{contact.name}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+        
+                    <section class="sectionRight">
+                        <div class="d_flex section_R_Contact" :class="{sectionBackgound : darkLigthMode}">
+                            <div>
+                                <div class="d_flex">
+                                    <img class="img_Top" :src="'img/avatar' + contacts[currentContact].avatar + '.jpg'" alt="Avatar ">
+                                    <span class="contactNameAccess">
+                                        <p>{{contacts[currentContact].name}}</p>
+                                        <p>Last seen today at</p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="d_flex">
+                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-search icons_Top"></i></div>
+                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-paperclip icons_Top"></i></div>
+                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-ellipsis-v icons_Top"></i></i></div>
+                            </div>
+                        </div>
+                        <div class="section_R_Chat" :class="{darkBackground : darkLigthMode}">
+                            <div class="d_flex" v-for="(message, index) in contacts[currentContact].messages" :key="index">
+                                <div :class="message.status" class="message" @click="toggleDeleteMessage(index)">
+                                    {{message.message}}
+                                    <div class="date">{{message.date}}</div>
+                                    <div class="deleteMessage" :class="message.deleteMessage ? 'view' : 'none'" @click="deleteMessageFunction(index)">
+                                        Delete message
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="d_flex section_R_Message" :class="{sectionBackgound : darkLigthMode}">
+                            <i class="far fa-smile"></i>
+                            <input :class="{darkInputMessage : darkLigthMode}" type="text" name="message" id="message" placeholder="Write a message" v-model="newMessage" @keyup.enter="addMessage()">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                    </section>
+
                 </div>
-                <div class="d_flex section_R_Message" >
-                    <i class="far fa-smile"></i>
-                    <input type="text" name="message" id="message" placeholder="Write a message" v-model="newMessage" @keyup.enter="addMessage()">
-                    <i class="fas fa-microphone"></i>
-                </div>
-            </section>
+
+            </div>
 
         </div>
         

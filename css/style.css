@@ -6,7 +6,7 @@
 }
 
 /* Common */
-body {
+.background {
     width: 100%;
     height: 100vh;
     padding: 1.875rem 0rem;
@@ -60,6 +60,19 @@ img {
     justify-content: space-between;
     align-items: center;
     padding: .625rem;
+}
+.icons_L_Top_Container {
+    position: relative;
+}
+.ligthModeContainer {
+    display: none;
+    position: absolute;
+    background-color: #eaeaea;
+    padding: 1rem;
+    right: 1.25rem;
+    bottom: -3.4375rem;
+    box-shadow: 0 0 .25rem gray;
+    cursor: pointer;
 }
 .section_L_Not {
     padding: .625rem;
@@ -213,8 +226,62 @@ img {
 }
 
 /* Dark mode */
+.darkSectionLeft {
+    border-right: .0625rem solid #3F4448;
+    background-color: #131C21;
+}
+.darkBackgroundBody {
+    background: transparent;
+    background-color: #090E12;
+}
 .darkBackground {
     background-image: url(../img/mineDark2.0.png);
+}
+.darkBackground .sent{
+    background-color: #046162;
+    color: #fff;
+}
+.darkBackground .received{
+    background-color: #262D31;
+    color: #fff;
+}
+.darkBackground .date {
+    color: #d7d9da;
+}
+.darkBackground .deleteMessage {
+    background-color: #262D31;
+}
+.sectionBackgound,
+.darkModeContainer {
+    background-color: #2A2F32;
+    color: #E1E2E3;
+}
+.darkIcons_Top_Container {}
+.darkBackgroundNot {
+    background-color: #095373;
+    color: #E1E2E3;
+}
+.darkContainerNot {
+    background-color: #73777B;
+    color: #095373;
+}
+.darkSection_L_Search {
+    background-color: #131C21;
+}
+.darkSection_L_Search div,
+.darkSection_L_Search input {
+    background-color: #2A2F32;
+    border-color: #131C21;
+}
+.darkSection_L_Chat li {
+    color: #fff;
+    border-color: #3F4448;
+}
+.darkSection_L_Chat li.active {
+    background-color: #323739;
+}
+.darkInputMessage {
+    background-color: #33383B;
 }
 
 /* Hover effects */
@@ -223,6 +290,16 @@ img {
     box-shadow: 0 0 .25rem #c2c2c2;
     color: #ddd;
 }
+.darkIcons_Top_Container:hover {
+    background-color: #000;
+    box-shadow: 0 0 .25rem #000;
+}
+.ligthModeContainer:hover {
+    background-color: #dadada;
+}
+.darkModeContainer:hover {
+    background-color: #000;
+}
 .containerNot:hover {
     transform: scale(1.15);
 }
@@ -230,12 +307,28 @@ img {
     color: #fff;
     background-color: #dbdbd2;
 }
+.darkSection_L_Search div:hover {
+    color: #b1b1b1;
+    background-color: #111;
+}
 .section_L_Chat li:hover {
+    background-color: #f9f9f9;
+}
+.section_L_Chat li.active:hover {
     background-color: #e9ebeb;
+}
+.darkSection_L_Chat li:hover {
+    background-color: #2D3134;
+}
+.darkSection_L_Chat li.active:hover {
+    background-color: #323739;
 }
 .section_R_Message i:hover {
     transform: scale(1.3);
 }
 .deleteMessage:hover {
     background-color: #e9ebeb;
+}
+.darkBackground .deleteMessage:hover {
+    background-color: #111;
 }
