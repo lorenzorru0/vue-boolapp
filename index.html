@@ -80,7 +80,7 @@
                                 <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-ellipsis-v icons_Top"></i></i></div>
                             </div>
                         </div>
-                        <div class="section_R_Chat" :class="{darkBackground : darkLigthMode}">
+                        <div class="section_R_Chat" :class="{darkSection_R_Chat : darkLigthMode}">
                             <div class="d_flex" v-for="(message, index) in contacts[currentContact].messages" :key="index">
                                 <div :class="message.status" class="message" @click="toggleDeleteMessage(index)">
                                     {{message.message}}

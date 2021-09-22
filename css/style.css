@@ -234,21 +234,21 @@ img {
     background: transparent;
     background-color: #090E12;
 }
-.darkBackground {
+.darkSection_R_Chat {
     background-image: url(../img/mineDark2.0.png);
 }
-.darkBackground .sent{
+.darkSection_R_Chat .sent{
     background-color: #046162;
     color: #fff;
 }
-.darkBackground .received{
+.darkSection_R_Chat .received{
     background-color: #262D31;
     color: #fff;
 }
-.darkBackground .date {
+.darkSection_R_Chat .date {
     color: #d7d9da;
 }
-.darkBackground .deleteMessage {
+.darkSection_R_Chat .deleteMessage {
     background-color: #262D31;
 }
 .sectionBackgound,
@@ -329,6 +329,6 @@ img {
 .deleteMessage:hover {
     background-color: #e9ebeb;
 }
-.darkBackground .deleteMessage:hover {
+.darkSection_R_Chat .deleteMessage:hover {
     background-color: #111;
 }
