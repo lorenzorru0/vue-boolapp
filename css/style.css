@@ -139,6 +139,7 @@ img {
     height: calc(100% - 7.8125rem);
     padding: 3.125rem 6.25rem;
     background-image: url(../img/mine.jpg);
+    overflow-y: auto;
 }
 .section_R_Chat .sent,
 .section_R_Chat .received {
@@ -148,9 +149,6 @@ img {
     border-radius: .625rem;
     margin-bottom: .625rem;
 }
-/* .messageContainer {
-    justify-content: flex-end;
-} */
 .section_R_Chat .sent{
     margin-left: auto;
     background-color: #d5f9ba;
@@ -166,7 +164,22 @@ img {
     right: .3125rem;
     bottom: .3125rem;
 }
-
+.deleteMessage {
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    padding: .625rem;
+    right: 0;
+    border-radius: .625rem;
+    bottom: -2.4375rem;
+    box-shadow: 0 0 .250rem gray;
+}
+.none {
+    display: none;
+}
+.view {
+    display: block;
+}
 .section_R_Message {
     background-color: #f3eeea;
     justify-content: space-evenly;
