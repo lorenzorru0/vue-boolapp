@@ -261,6 +261,9 @@ const app = new Vue ({
         },
         toggleDeleteMessage: function(messageIndex) {
             this.contacts[this.currentContact].messages[messageIndex].deleteMessage = !this.contacts[this.currentContact].messages[messageIndex].deleteMessage;
+        },
+        deleteMessageFunction: function(messageIndex) {
+            this.contacts[this.currentContact].messages.splice(messageIndex, 1);
         }
     }
 });

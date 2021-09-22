@@ -164,6 +164,9 @@ img {
     right: .3125rem;
     bottom: .3125rem;
 }
+.message {
+    cursor: pointer;
+}
 .deleteMessage {
     position: absolute;
     z-index: 1;

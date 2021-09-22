@@ -74,10 +74,10 @@
                 </div>
                 <div class="section_R_Chat">
                     <div class="d_flex" v-for="(message, index) in contacts[currentContact].messages" :key="index">
-                        <div :class="message.status" @click="toggleDeleteMessage(index)">
+                        <div :class="message.status" class="message" @click="toggleDeleteMessage(index)">
                             {{message.message}}
                             <div class="date">{{message.date}}</div>
-                            <div class="deleteMessage" :class="message[index].deleteMessage ? 'none' : 'view'">
+                            <div class="deleteMessage" :class="message.deleteMessage ? 'view' : 'none'" @click="deleteMessageFunction(index)">
                                 Delete message
                             </div>
                         </div>
