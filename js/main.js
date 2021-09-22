@@ -264,6 +264,13 @@ const app = new Vue ({
         },
         deleteMessageFunction: function(messageIndex) {
             this.contacts[this.currentContact].messages.splice(messageIndex, 1);
+            if (messageIndex == this.contacts[this.currentContact].messages.length - 1) {
+                
+            } else {
+                console.log(messageIndex);
+                console.log(this.contacts[this.currentContact].messages.length);
+                this.contacts[this.currentContact].messages[messageIndex].deleteMessage = "false";
+            }
         }
     }
 });

@@ -218,3 +218,6 @@ img {
 .section_R_Message i:hover {
     transform: scale(1.3);
 }
+.deleteMessage:hover {
+    background-color: #e9ebeb;
+}
