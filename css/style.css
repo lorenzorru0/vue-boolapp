@@ -399,6 +399,19 @@ img {
     .ligthModeContainer {
         bottom: -5rem;
     }
+    .section_L_Chat img,
+    .img_Top {
+        margin-right: 0;
+    }
+    .section_L_User {
+        padding: .625rem 0;
+    }
+    .section_L_User div {
+        margin: auto;
+    }
+    .section_R_Contact .img_Top {
+        margin-right: .625rem;
+    }
 }
 @media screen and (max-width: 525px) {
     .d_None_MediaQuery525 {
