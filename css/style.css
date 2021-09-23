@@ -161,15 +161,15 @@ img {
 }
 .section_R_Chat {
     height: calc(100% - 7.8125rem);
-    padding: 3.125rem 6.25rem;
+    padding: 3.125rem 3.15rem;
     overflow-y: auto;
     background-image: url(../img/mine.jpg);
 }
 .section_R_Chat .sent,
 .section_R_Chat .received {
-    width: 25rem;
+    min-width: 8.1875rem;
+    max-width: 25rem;
     position: relative;
-    padding: 1.25rem;
     border-radius: .625rem;
     margin-bottom: .625rem;
 }
@@ -189,6 +189,7 @@ img {
     bottom: .3125rem;
 }
 .message {
+    padding: 1.25rem;
     cursor: pointer;
 }
 .deleteMessage {
@@ -331,4 +332,57 @@ img {
 }
 .darkSection_R_Chat .deleteMessage:hover {
     background-color: #111;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+    .sectionLeft {
+        width: 20%;
+    }
+    .sectionRight {
+        width: 80%;
+    }
+    .background {
+        padding: 0rem 0rem;
+    }
+    .section_L_Chat {
+        height: calc(100% - 14.8125rem);
+    }
+    .container {
+        width: 100%;
+    }
+    .d_None_MediaQuery {
+        display: none;
+    }
+    .d_Block_MediaQuery {
+        display: block;
+    }
+    .section_R_Chat {
+        padding: 3.125rem 1rem;
+    }
+    .section_R_Chat .sent,
+    .section_R_Chat .received {
+        max-width: 20rem;
+    }
+    .icons_Top_Container {
+        margin-right: 0.5rem;
+    }
+    .section_L_Search div {
+        display: none;
+    }
+    .section_L_Not a {
+        margin: auto;
+    }
+    .section_L_Chat li {
+        text-align: center;
+    }
+    .section_L_Search input {
+        width: 100%;
+    }
+    .section_R_Message input {
+        width: 80%;
+    }
+    .ligthModeContainer {
+        bottom: -5rem;
+    }
 }

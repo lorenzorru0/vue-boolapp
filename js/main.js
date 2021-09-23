@@ -6,6 +6,7 @@ const app = new Vue ({
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
+                userStatus: "Offline",
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -31,6 +32,7 @@ const app = new Vue ({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
+                userStatus: "Offline",
                 messages: [{
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
@@ -55,6 +57,7 @@ const app = new Vue ({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
+                userStatus: "Offline",
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
@@ -79,6 +82,7 @@ const app = new Vue ({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: true,
+                userStatus: "Offline",
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -219,10 +223,7 @@ const app = new Vue ({
             this.currentContact = contactsIndex;
         },
         getDate: function() {
-            let today = new Date();
-            let date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
-            let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            let dateTime = date + ' ' + time;
+            let dateTime = dayjs().format('DD/MM/YYYY HH:mm:ss');
             return dateTime;
         },
         getRandomMessage: function() {
@@ -237,15 +238,23 @@ const app = new Vue ({
                 deleteMessage: false
             });
             this.newMessage = "";
-            setTimeout(() => { 
-                let currentDateTime = this.getDate();
-                this.contacts[this.currentContact].messages.push({
-                    date: currentDateTime,
-                    message: this.getRandomMessage(),
-                    status: 'received',
-                    deleteMessage: false
-                });
-            }, 1000);
+            setTimeout(() => {
+                this.contacts[this.currentContact].userStatus = "Online";
+                setTimeout(() => { 
+                    let currentDateTime = this.getDate();
+                    this.contacts[this.currentContact].messages.push({
+                        date: currentDateTime,
+                        message: this.getRandomMessage(),
+                        status: 'received',
+                        deleteMessage: false
+                    });
+                    setTimeout(() => {
+                        this.contacts[this.currentContact].userStatus = `Last access on ${this.getDate()}`;
+                    }, 3000);
+                }, 3000);
+            }, 3000);
+            
+            
         },
         searchChat: function() {
             let testSearchString = this.searchString.charAt(0).toLowerCase() + this.searchString.slice(1); 
@@ -266,13 +275,6 @@ const app = new Vue ({
         },
         deleteMessageFunction: function(messageIndex) {
             this.contacts[this.currentContact].messages.splice(messageIndex, 1);
-            console.log(messageIndex);
-            console.log(this.contacts[this.currentContact].messages.length);
-            if (messageIndex != (this.contacts[this.currentContact].messages.length - 1)) {
-                console.log(messageIndex);
-                console.log(this.contacts[this.currentContact].messages.length);
-                this.contacts[this.currentContact].messages[messageIndex].deleteMessage = false;
-            } 
         },
         toggleLigthDarkMode: function() {
             this.darkLigthModeView = !this.darkLigthModeView;

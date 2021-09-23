@@ -30,9 +30,9 @@
                         <div class="d_flex section_L_User" :class="{sectionBackgound : darkLigthMode}">
                             <div>
                                 <img class="img_Top" src="img/avatar_io.jpg" alt="Avatar user">
-                                Lorenzo Orrù
+                                <span class="d_Block_MediaQuery">Lorenzo Orrù</span> 
                             </div>
-                            <div class="d_flex icons_L_Top_Container">
+                            <div class="d_flex d_Block_MediaQuery icons_L_Top_Container">
                                 <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-circle-notch icons_Top"></i></div>
                                 <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-comment-alt icons_Top"></i></div>
                                 <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}" @click="toggleLigthDarkMode()"><i class="fas fa-ellipsis-v icons_Top"></i></div>
@@ -45,8 +45,8 @@
                         <div class="d_flex section_L_Not" :class="{darkBackgroundNot : darkLigthMode}">
                             <a href="#" class="containerNot" :class="{darkContainerNot : darkLigthMode}"><i class="fas fa-bell-slash"></i></a>
                             <div>
-                                <p>Receive notification of new messages</p>
-                                <a class="linkNot" href="#">Turn on desktop notification</a>
+                                <p class="d_None_MediaQuery">Receive notification of new messages</p>
+                                <a class="linkNot d_None_MediaQuery" href="#">Turn on desktop notification</a>
                             </div>
                         </div>
                         <div class="d_flex section_L_Search" :class="{darkSection_L_Search : darkLigthMode}">
@@ -57,7 +57,7 @@
                             <ul>
                                 <li :class="index == currentContact ? 'active' : null" v-for="(contact, index) in testContacts" :key="index" @click="changeChat(index)">
                                     <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar' + contact.name">
-                                    <span>{{contact.name}}</span>
+                                    <span class="d_None_MediaQuery">{{contact.name}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -70,7 +70,7 @@
                                     <img class="img_Top" :src="'img/avatar' + contacts[currentContact].avatar + '.jpg'" alt="Avatar ">
                                     <span class="contactNameAccess">
                                         <p>{{contacts[currentContact].name}}</p>
-                                        <p>Last seen today at</p>
+                                        <p>{{contacts[currentContact].userStatus}}</p>
                                     </span>
                                 </div>
                             </div>
@@ -82,9 +82,11 @@
                         </div>
                         <div class="section_R_Chat" :class="{darkSection_R_Chat : darkLigthMode}">
                             <div class="d_flex" v-for="(message, index) in contacts[currentContact].messages" :key="index">
-                                <div :class="message.status" class="message" @click="toggleDeleteMessage(index)">
-                                    {{message.message}}
-                                    <div class="date">{{message.date}}</div>
+                                <div :class="message.status" >
+                                    <div class="message" @click="toggleDeleteMessage(index)">
+                                        {{message.message}}
+                                        <div class="date">{{message.date}}</div>
+                                    </div>
                                     <div class="deleteMessage" :class="message.deleteMessage ? 'view' : 'none'" @click="deleteMessageFunction(index)">
                                         Delete message
                                     </div>
@@ -106,6 +108,7 @@
         </div>
         
         <!-- Scripts -->
+        <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script src="js/main.js"></script>
     </body>
