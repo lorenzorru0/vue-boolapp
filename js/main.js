@@ -205,7 +205,9 @@ const app = new Vue ({
             "Tutto il contrario."
         ],
         darkLigthModeView: false,
-        darkLigthMode: false
+        darkLigthMode: false,
+        darkLigthModeViewR: false,
+        sectionLeftView: false
     },
     mounted() {
         this.copyContacts()
@@ -280,8 +282,18 @@ const app = new Vue ({
             this.darkLigthModeView = !this.darkLigthModeView;
         },
         darkMode: function() {
-            this.darkLigthMode = !this.darkLigthMode
+            this.darkLigthMode = !this.darkLigthMode;
             this.darkLigthModeView = false;
+        },
+        toggleLigthDarkModeR: function () {
+            this.darkLigthModeViewR = !this.darkLigthModeViewR;
+        },
+        darkModeR: function() {
+            this.darkLigthMode = !this.darkLigthMode;
+            this.darkLigthModeViewR = false;
+        },
+        sectionLeftViewFunction: function() {
+            this.sectionLeftView = !this.sectionLeftView;
         }
     }
 });

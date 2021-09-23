@@ -26,11 +26,11 @@
 
                 <div class="d_flex container">
                     
-                    <section class="sectionLeft" :class="{darkSectionLeft : darkLigthMode}">
+                    <section class="sectionLeft" :class="{darkSectionLeft : darkLigthMode, sectionLeftNone : sectionLeftView}">
                         <div class="d_flex section_L_User" :class="{sectionBackgound : darkLigthMode}">
                             <div>
                                 <img class="img_Top" src="img/avatar_io.jpg" alt="Avatar user">
-                                <span class="d_Block_MediaQuery">Lorenzo Orrù</span> 
+                                <span class="d_Block_MediaQuery d_None_MediaQuery525">Lorenzo Orrù</span> 
                             </div>
                             <div class="d_flex d_Block_MediaQuery icons_L_Top_Container">
                                 <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-circle-notch icons_Top"></i></div>
@@ -63,7 +63,7 @@
                         </div>
                     </section>
         
-                    <section class="sectionRight">
+                    <section class="sectionRight" :class="{sectionRigthFull : sectionLeftView}">
                         <div class="d_flex section_R_Contact" :class="{sectionBackgound : darkLigthMode}">
                             <div>
                                 <div class="d_flex">
@@ -74,10 +74,14 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="d_flex">
-                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-search icons_Top"></i></div>
+                            <div class="d_flex icons_R_Top_Container">
+                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}" @click="sectionLeftViewFunction()"><i class="fas fa-search icons_Top"></i></div>
                                 <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-paperclip icons_Top"></i></div>
-                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}"><i class="fas fa-ellipsis-v icons_Top"></i></i></div>
+                                <div class="icons_Top_Container" :class="{darkIcons_Top_Container : darkLigthMode}" @click="toggleLigthDarkModeR()"><i class="fas fa-ellipsis-v icons_Top"></i></i></div>
+                                <div class="ligthModeContainer" :class="{view : darkLigthModeViewR, darkModeContainer : darkLigthMode}" @click="darkModeR()">
+                                    <p v-if="darkLigthMode == false">Dark mode</p>
+                                    <p v-else>Ligth mode</p>
+                                </div>
                             </div>
                         </div>
                         <div class="section_R_Chat" :class="{darkSection_R_Chat : darkLigthMode}">
